@@ -4,6 +4,23 @@
 
 Flipbook is a self-hosted publishing studio. You build pages from templates, add products and images, edit everything in a visual editor, publish an immutable edition that readers flip through in the browser, and download an A4 PDF of the same content. It runs as a single Node.js container with SQLite and local files. You don't need cloud accounts, API keys or external services.
 
+## Demo
+
+<p align="center">
+  <a href="docs/media/flipbook-demo.mp4">
+    <img src="docs/images/flipbook-demo-poster.jpg" alt="Flipbook end-to-end demo video. Click to watch." width="720">
+  </a>
+  <br>
+  <a href="docs/media/flipbook-demo.mp4"><b>▶ Watch the end-to-end demo</b></a> (5 min, narrated, 1080p MP4)
+</p>
+
+The demo builds a ten-page product magazine from templates. Its 14 scenes cover:
+
+- templates, branding, typography and layout tools
+- images and hotspots, and CSV catalog import
+- design checks, draft history, and review and approval
+- publishing, the 3D page-turning reader on desktop and phone, PDF export, and private drafts You can regenerate it with [tools/demo-video](tools/demo-video/README.md).
+
 <p align="center">
   <img src="docs/images/flipbook-page-curl.png" alt="Flipbook reader with a curved WebGL page held mid-turn" width="720">
 </p>
@@ -16,6 +33,7 @@ Flipbook is a self-hosted publishing studio. You build pages from templates, add
 
 ## Contents
 
+- [Demo](#demo)
 - [Features](#features)
 - [Tech stack](#tech-stack)
 - [Prerequisites](#prerequisites)
@@ -208,7 +226,8 @@ The app is intended for **local use**. A `localhost` reader link is not a public
 │   ├── PRD.md                 product requirements
 │   ├── TECHNICAL_DESIGN.md    current architecture (HLD/LLD, APIs, storage, jobs, security)
 │   ├── archive/               superseded designs, kept for decision history
-│   └── images/                screenshots
+│   ├── images/                screenshots and the demo poster
+│   └── media/                 demo video (flipbook-demo.mp4)
 ├── flipbook/                  the application
 │   ├── client/                React editor (Vite)
 │   ├── server/                Express API, auth, SQLite, jobs, PDF worker
