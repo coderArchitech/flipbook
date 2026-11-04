@@ -83,7 +83,7 @@ On **Windows**, run all commands inside **WSL2** with Docker Desktop's WSL integ
 ## Quick start (Docker)
 
 ```bash
-git clone https://github.com/<owner>/flipbook.git
+git clone https://github.com/coderArchitech/flipbook.git
 cd flipbook/flipbook          # the application lives in the flipbook/ subfolder
 
 ./scripts/install.sh          # first time: prepares Docker, builds, starts, waits for health

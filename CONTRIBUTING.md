@@ -5,7 +5,7 @@ Thanks for helping. This guide covers setup, the checks a change must pass, and 
 ## Setup
 
 ```bash
-git clone https://github.com/<owner>/flipbook.git
+git clone https://github.com/coderArchitech/flipbook.git
 cd flipbook/flipbook
 nvm use            # Node 24 is required (node:sqlite)
 npm ci
