@@ -1,0 +1,18 @@
+name: flipbook-checks
+services:
+  tests:
+    build:
+      context: .
+      target: browser-tests
+    init: true
+    environment:
+      CI: "true"
+      PLAYWRIGHT_REPORT_DIR: /reports/html
+      PLAYWRIGHT_OUTPUT_DIR: /reports/results
+      FLIPBOOK_TEST_ARTIFACT_DIR: /reports/api
+    volumes:
+      - ./tests:/app/tests:ro
+      - ./test-results/docker:/reports
+    shm_size: 1gb
+    mem_limit: 2g
+    cpus: 2.0

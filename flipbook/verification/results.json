@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-27",
+  "technicalDesignVersion": "3.0",
+  "environment": "Docker, Linux ARM64, Chromium with Pixel 7 emulation",
+  "frontendUnitTests": 40,
+  "backendUnitTests": 12,
+  "sharedUnitTests": 8,
+  "apiScenarios": 9,
+  "nodeIntegrationReportedTestsIncludingParent": 10,
+  "playwright": {
+    "total": 22,
+    "expected": 22,
+    "unexpected": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "ok": true
+  },
+  "productionAudit": "0 vulnerabilities",
+  "gpuEvidence": "WebGL required by held-drag case; curved-paper-drag.png retained"
+}

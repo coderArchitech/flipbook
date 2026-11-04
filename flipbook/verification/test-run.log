@@ -1,0 +1,195 @@
+ Image flipbook-checks-tests Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 667B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 1.20kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for mcr.microsoft.com/playwright:v1.64.1-noble
+#3 DONE 0.5s
+
+#4 [internal] load metadata for docker.io/library/node:24-bookworm-slim
+#4 DONE 1.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 124B done
+#5 DONE 0.0s
+
+#6 [dependencies 1/4] FROM docker.io/library/node:24-bookworm-slim@sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205
+#6 resolve docker.io/library/node:24-bookworm-slim@sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205 done
+#6 DONE 0.0s
+
+#7 [browser-tests 1/5] FROM mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea
+#7 resolve mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 61.60kB done
+#8 DONE 0.0s
+
+#9 [dependencies 2/4] WORKDIR /app
+#9 CACHED
+
+#10 [dependencies 4/4] RUN npm ci --no-audit --no-fund
+#10 CACHED
+
+#11 [browser-tests 2/5] WORKDIR /app
+#11 CACHED
+
+#12 [dependencies 3/4] COPY package.json package-lock.json ./
+#12 CACHED
+
+#13 [browser-tests 3/5] COPY --from=dependencies /app/node_modules ./node_modules
+#13 CACHED
+
+#14 [browser-tests 4/5] COPY . .
+#14 DONE 0.0s
+
+#15 [browser-tests 5/5] RUN npm run build
+#15 0.175 
+#15 0.175 > flipbook@1.0.0 build
+#15 0.175 > vite build && node scripts/build-reader.mjs
+#15 0.175 
+#15 0.263 vite v7.3.7 building client environment for production...
+#15 0.296 transforming...
+#15 0.339 
+#15 0.339 /fonts/sans.woff2 referenced in /fonts/sans.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+#15 0.339 
+#15 0.339 /fonts/sans-bold.woff2 referenced in /fonts/sans-bold.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+#15 0.339 
+#15 0.339 /fonts/serif.woff2 referenced in /fonts/serif.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+#15 1.375 ✓ 1597 modules transformed.
+#15 1.495 rendering chunks...
+#15 1.513 computing gzip size...
+#15 1.520 dist/index.html                           0.43 kB │ gzip:   0.30 kB
+#15 1.520 dist/assets/index-BI9id5dt.css           30.42 kB │ gzip:   7.25 kB
+#15 1.520 dist/assets/index-CTgBNgIE.js           302.15 kB │ gzip:  94.40 kB
+#15 1.520 dist/assets/paper-renderer-gDYvFlGE.js  539.74 kB │ gzip: 137.74 kB
+#15 1.520 
+#15 1.520 (!) Some chunks are larger than 500 kB after minification. Consider:
+#15 1.520 - Using dynamic import() to code-split the application
+#15 1.520 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+#15 1.520 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+#15 1.521 ✓ built in 1.24s
+#15 1.633 npm notice
+#15 1.633 npm notice New major version of npm available! 11.19.1 -> 12.2.1
+#15 1.633 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+#15 1.633 npm notice To update run: npm install -g npm@12.2.1
+#15 1.633 npm notice
+#15 DONE 1.6s
+
+#16 exporting to image
+#16 exporting layers 0.1s done
+#16 exporting manifest sha256:85c37da26d087be4c1e478ed66dd6927bace5f78298e48d47ac3dc8fd0b9c92d done
+#16 exporting config sha256:21c64fa628c4d1d4393d764cd347942e905b7fe96dc75081a89e12c730039b26 done
+#16 exporting attestation manifest sha256:b8b2d447fac110b1374f6abf32af76e672625fc6046754e39709f796a821e005 done
+#16 exporting manifest list sha256:4a40c4f54c15bc3e574f9a067a54fb38de370a835d67b943a96aca7500487452
+#16 exporting manifest list sha256:4a40c4f54c15bc3e574f9a067a54fb38de370a835d67b943a96aca7500487452 done
+#16 naming to docker.io/library/flipbook-checks-tests:latest done
+#16 unpacking to docker.io/library/flipbook-checks-tests:latest 0.0s done
+#16 DONE 0.1s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+ Image flipbook-checks-tests Built 
+ Container flipbook-checks-tests-run-5394ed28a7d4 Creating 
+ Container flipbook-checks-tests-run-5394ed28a7d4 Created 
+
+> flipbook@1.0.0 test
+> npm run test:unit && npm run test:integration
+
+
+> flipbook@1.0.0 test:unit
+> vitest run && node --test tests/document.test.mjs
+
+
+ RUN  v5.0.5 /app
+
+ ✓ tests/frontend/book-viewer.test.js (9 tests) 71ms
+ ✓ tests/frontend/book-webgl.test.js (7 tests) 65ms
+ ✓ tests/backend/auth.test.mjs (8 tests) 85ms
+ ✓ tests/frontend/book-preview.test.jsx (4 tests) 132ms
+ ✓ tests/frontend/flip-sound.test.js (6 tests) 4ms
+ ✓ tests/frontend/paper-geometry.test.js (5 tests) 8ms
+ ✓ tests/backend/reader.test.mjs (4 tests) 3ms
+ ✓ tests/frontend/api.test.js (4 tests) 3ms
+ ✓ tests/frontend/reader-model.test.js (3 tests) 3ms
+ ✓ tests/frontend/autoplay.test.js (2 tests) 3ms
+
+ Test Files  10 passed (10)
+      Tests  52 passed (52)
+   Start at  14:28:25
+   Duration  2.23s (environment 68%, tests 21%, transform 5%, import 5%, worker 1%)
+
+    Isolate  10 workers spawned · ~157ms startup each (spawn + environment, per file)
+             at least ~1.41s faster with isolate: false — reuses workers across files instead of one per file
+
+✔ all seven templates are valid editable drafts (2.561625ms)
+✔ publish validation rejects incomplete content and accepts a closing page (0.113542ms)
+✔ malformed content returns findings without throwing (0.447833ms)
+✔ geometry, duplicate identities, prototype themes and overlaps are rejected (0.0865ms)
+✔ duplicate pages get fresh page/block IDs and independent content (0.121458ms)
+✔ links accept HTTPS and reject executable, credentialed and malformed URLs (0.064083ms)
+✔ book opens from cover to facing pages and ends on the back cover (0.14225ms)
+✔ odd and single-page books, mobile pagination and empty lists are bounded (0.048292ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27.911958
+
+> flipbook@1.0.0 test:integration
+> node --test tests/api.test.mjs
+
+▶ local API, ownership, snapshots, PDF and publication lifecycle
+  ✔ authentication, CSRF, ownership and malformed documents (5.198291ms)
+  ✔ idempotent saves do not increment twice; stale edits are rejected (4.869458ms)
+  ✔ image decoding, catalog revisions and asset ownership are enforced (9.520791ms)
+  ✔ publishes seeded content and produces a four-page PDF with links (1876.016751ms)
+  ✔ draft changes stay private; page analytics deduplicate event IDs (6.124208ms)
+  ✔ unpublish fences queued work and revokes reader, PDF and asset access (841.110042ms)
+  ✔ duplicates are independent drafts; archived documents cannot save (13.863958ms)
+  ✔ PDF layout overflow fails with an actionable block finding (1233.925251ms)
+  ✔ wrong passwords fail and logout invalidates the session (33.241583ms)
+✔ local API, ownership, snapshots, PDF and publication lifecycle (4410.995336ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4449.412794
+
+Running 22 tests using 1 worker
+
+  ✓   1 [desktop-chromium] › tests/e2e/reader.spec.mjs:3:1 › rapid page turns remain responsive and settle on the requested spread (8.3s)
+  ✓   2 [desktop-chromium] › tests/e2e/reader.spec.mjs:42:1 › WebGL paper follows a held drag, settles, and reverses an abandoned drag (5.8s)
+  ✓   3 [desktop-chromium] › tests/e2e/reader.spec.mjs:98:1 › thumbnails, contents and product search navigate to real pages and restore focus (3.6s)
+  ✓   4 [desktop-chromium] › tests/e2e/reader.spec.mjs:149:1 › view preferences persist and RTL keyboard, single page, slide and scroll modes remain navigable (3.4s)
+  ✓   5 [desktop-chromium] › tests/e2e/reader.spec.mjs:190:1 › zoom pans without turning, fits back, and first/last controls respect boundaries (3.6s)
+  ✓   6 [desktop-chromium] › tests/e2e/reader.spec.mjs:228:1 › autoplay advances only after opting in and pauses on manual navigation and the last page (3.1s)
+  ✓   7 [desktop-chromium] › tests/e2e/reader.spec.mjs:256:1 › print renders every canonical page and restores the scroll view afterwards (3.0s)
+  ✓   8 [desktop-chromium] › tests/e2e/reader.spec.mjs:286:1 › blocked WebGL uses an operable 2D fallback with product interactions (3.2s)
+  ✓   9 [desktop-chromium] › tests/e2e/reader.spec.mjs:316:1 › flip sound is gesture-driven, can be muted and remembers the preference (4.5s)
+  ✓  10 [desktop-chromium] › tests/e2e/reader.spec.mjs:365:1 › cover, two-sided page turns, boundaries, deep links and keyboard navigation (8.0s)
+  ✓  11 [desktop-chromium] › tests/e2e/reader.spec.mjs:432:1 › product dialog, focus restoration, scroll view and reduced motion (2.1s)
+  ✓  12 [desktop-chromium] › tests/e2e/reader.spec.mjs:460:1 › odd-sized and one-page books never show phantom pages (3.8s)
+  ✓  13 [desktop-chromium] › tests/e2e/reader.spec.mjs:508:1 › fullscreen exits cleanly and sharing copies the selected page URL (5.4s)
+  ✓  14 [desktop-chromium] › tests/e2e/studio.spec.mjs:5:1 › edit text and products, autosave, reload, preview, publish and download PDF (7.1s)
+  ✓  15 [desktop-chromium] › tests/e2e/studio.spec.mjs:93:1 › page templates, ordering, duplication, undo and redo persist (1.8s)
+  ✓  16 [desktop-chromium] › tests/e2e/studio.spec.mjs:133:1 › editor book preview opens product details and restores keyboard focus (2.6s)
+  ✓  17 [desktop-chromium] › tests/e2e/studio.spec.mjs:182:1 › two tabs detect a revision conflict without overwriting the saved draft (3.0s)
+  ✓  18 [desktop-chromium] › tests/e2e/studio.spec.mjs:210:1 › uploads a real image and reuses it in a catalog product (499ms)
+  ✓  19 [desktop-chromium] › tests/e2e/studio.spec.mjs:245:1 › incomplete publications show actionable publish validation (163ms)
+  ✓  20 [desktop-chromium] › tests/e2e/studio.spec.mjs:264:3 › local account lifecycle › create a studio, sign out, reject wrong password and sign back in (560ms)
+  ✓  21 [mobile-chromium] › tests/e2e/mobile.spec.mjs:3:1 › phone reader fits one page, supports swipe, scroll and desktop resize (4.9s)
+  ✓  22 [mobile-chromium] › tests/e2e/mobile.spec.mjs:64:1 › phone navigation panel closes after selection and pinch zoom keeps the current page (3.2s)
+
+  22 passed (1.4m)

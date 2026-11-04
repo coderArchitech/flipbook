@@ -1,0 +1,244 @@
+.book-viewer {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  perspective: 2400px;
+  outline-offset: 8px;
+  touch-action: pan-y;
+  isolation: isolate;
+}
+.paper-canvas {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 6;
+  max-width: none !important;
+}
+.paper-canvas[hidden] {
+  display: none !important;
+}
+.paper-snapshot {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 794px;
+  height: 1123px;
+  pointer-events: none;
+  z-index: -100;
+  contain: layout style;
+}
+.book-viewer[aria-busy="true"] {
+  cursor: grabbing;
+}
+.book-viewer[data-binding="spiral"].book-spread .book-stage:before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: calc(50% - 12px);
+  top: 24px;
+  bottom: 24px;
+  width: 24px;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 30px,
+    #656760 31px 35px,
+    #d8dbd2 36px 38px,
+    transparent 39px 58px
+  );
+  pointer-events: none;
+  border-radius: 8px;
+}
+.book-viewer[data-binding="hard"] .book-stage {
+  outline: 3px solid #787d6e33;
+  outline-offset: 2px;
+}
+.book-stage {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 22px 55px #27302630,
+    0 2px 8px #27302624;
+}
+.book-stage:after {
+  content: "";
+  position: absolute;
+  inset: 3px -7px -6px 5px;
+  z-index: -1;
+  background: repeating-linear-gradient(90deg, #d4d1c6 0 1px, #f6f3e9 1px 3px);
+  border: 1px solid #d0cec5;
+  pointer-events: none;
+}
+.book-viewer .mag-page {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 794px;
+  height: 1123px;
+  box-shadow: none;
+}
+.book-viewer .mag-page[hidden] {
+  display: none !important;
+}
+.book-viewer .book-left:after,
+.book-viewer .book-right:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.book-viewer .book-left:after {
+  background: linear-gradient(
+    to left,
+    #30271922,
+    transparent 5%,
+    transparent 98%,
+    #30271906
+  );
+}
+.book-viewer .book-right:after {
+  background: linear-gradient(
+    to right,
+    #30271930,
+    transparent 6%,
+    transparent 98%,
+    #30271908
+  );
+}
+.book-leaf {
+  position: absolute;
+  top: 0;
+  width: 794px;
+  height: 1123px;
+  transform-style: preserve-3d;
+  z-index: 4;
+  pointer-events: none;
+  will-change: transform;
+}
+.book-leaf-face {
+  box-shadow: 0 3px 16px #0002 !important;
+}
+.book-leaf-face:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #30271926, transparent 12%);
+}
+.book-cover-turn {
+  z-index: 4;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.book-leaf-face {
+  backface-visibility: hidden !important;
+}
+.book-leaf-back {
+  transform: rotateY(180deg);
+}
+.book-viewer.flow {
+  height: auto !important;
+  max-width: 794px;
+  perspective: none;
+  touch-action: auto;
+}
+.book-viewer.flow .book-stage {
+  position: static;
+  transform: none !important;
+  box-shadow: none;
+  width: 100% !important;
+  height: auto !important;
+}
+.book-viewer.flow .book-stage:after {
+  display: none;
+}
+.book-viewer.flow .mag-page {
+  position: relative;
+  top: auto;
+  left: auto !important;
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 18px #33351f12;
+}
+.book-viewer.flow .mag-page:after {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-viewer * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.book-viewer[data-zoomed="true"] {
+  touch-action: none;
+  cursor: grab;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    background: white !important;
+  }
+  .reader-bar,
+  .reader-nav,
+  .reader-sidebar,
+  .edge-turn,
+  #reader-status,
+  dialog {
+    display: none !important;
+  }
+  .book-surround {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background: white !important;
+  }
+  #magazine {
+    width: 794px !important;
+    height: auto !important;
+    margin: 0 !important;
+    perspective: none !important;
+  }
+  #magazine .book-stage {
+    position: static !important;
+    width: 794px !important;
+    height: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+    visibility: visible !important;
+    outline: none !important;
+  }
+  #magazine .book-stage:before,
+  #magazine .book-stage:after,
+  #magazine .mag-page:after,
+  #magazine canvas,
+  #magazine .book-leaf,
+  #magazine .book-cover-turn {
+    display: none !important;
+  }
+  #magazine > .book-stage > .mag-page[hidden],
+  #magazine > .book-stage > .mag-page {
+    display: block !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 794px !important;
+    height: 1123px !important;
+    margin: 0 !important;
+    break-after: page;
+    box-shadow: none !important;
+    print-color-adjust: exact;
+  }
+  #magazine > .book-stage > .mag-page:last-child {
+    break-after: auto;
+  }
+}

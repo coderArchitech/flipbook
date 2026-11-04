@@ -1,0 +1,31 @@
+# Local scratch and build outputs from the original authoring session (kept on disk, never committed)
+/work/
+/outputs/
+
+# Dependencies and build output
+node_modules/
+dist/
+
+# Runtime data, secrets and backups
+data/
+backups/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+.secret
+
+# Test and tool output
+test-results/
+playwright-report/
+tools/demo-video/out/
+*.log
+!flipbook/verification/test-run.log
+.tmp/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
